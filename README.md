@@ -1,2 +1,2 @@
-# emacscfg
-Emacs Config
+# EmacsConfig
+Emacs配置文件
