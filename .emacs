@@ -5,9 +5,26 @@
 ;; 配置emacs的启动目录
 (add-to-list 'load-path "~/.emacs.d")
 
+
+
+
+;;;; server mode
+(require 'server)
+(when (and (= emacs-major-version 23)
+           (= emacs-minor-version 1)
+           (equal window-system 'w32))
+  (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
+										; ~/.emacs.d/server is unsafe"
+										; on windows.
+(server-start)
+
+
+
+
+;;;; 编辑器设置
 ;; 设置背景色和字体色
-(set-foreground-color "black")
-(set-background-color "grey")
+(set-foreground-color "white")
+(set-background-color "black")
 (set-face-foreground 'secondary-selection"skyblue")
 (set-face-background 'secondary-selection"darkblue")
 (global-font-lock-mode t)
@@ -163,6 +180,9 @@
 ;; 设置kill-ring-max为200
 (setq kill-ring-max 200)
 
+;; 删除行尾空白
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Tab键
 (setq default-tab-width 4)
 (setq tab-width 4)
@@ -183,7 +203,83 @@
 
 
 
-;;;; Lua模式
+;;;; 自动补全
+;; yasnippet
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; auto-complete
+;; (setq ac-auto-start t)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+
+;; auto-complete-clang
+(require 'auto-complete-clang)
+(setq ac-quick-help-delay 0.5)
+(global-set-key (kbd "C-<tab>") 'ac-complete-clang)
+
+;; 通过命令获取gcc搜索目录：echo "" | g++ -v -x c++ -E -""
+(setq ac-clang-flags
+      (mapcar (lambda (item)(concat "-I" item))
+              (split-string
+               "
+/usr/include/c++/4.8
+/usr/include/i386-linux-gnu/c++/4.8
+/usr/include/c++/4.8/backward
+/usr/lib/gcc/i686-linux-gnu/4.8/include
+/usr/local/include
+/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed
+/usr/include/i386-linux-gnu
+/usr/include"
+               )))
+
+(defun my-ac-config ()
+  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+  ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
+  (add-hook 'css-mode-hook 'ac-css-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+(defun my-ac-cc-mode-setup ()
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+(add-hook 'c++-mode-common-hook 'my-ac-cc-mode-setup)
+(add-hook 'lua-mode-common-hook 'my-ac-cc-mode-setup)
+(my-ac-config)
+
+
+
+
+;;;; 基于语法分析的智能补全
+;; 配置semantic,代码分析,智能补全
+(setq semanticdb-default-save-directory (expand-file-name "~/.semanticdb")) ;设置semantic.cache路径
+(setq semanticdb-project-roots (list (expand-file-name "/"))) ;配置Semantic的检索范围
+(autoload 'senator-try-expand-semantic "senator") ;优先调用了senator的分析结果
+(add-hook 'semantic-init-hooks 'semantic-idle-completions-mode) ;空闲时进行补全分析
+(setq-default semantic-idle-scheduler-idle-time 432000) ;避免semantic占用CPU过多
+
+;;; C/C++语言启动时自动加载semantic对/usr/include的索引数据库
+(setq semanticdb-search-system-databases t)
+(add-hook 'c-mode-common-hook
+		  (lambda ()
+			(setq semanticdb-project-system-databases
+				  (list (semanticdb-create-database
+						 semanticdb-new-database-class
+						 "/usr/include")))))
+(add-hook 'c++-mode-common-hook
+		  (lambda ()
+			(setq semanticdb-project-system-databases
+				  (list (semanticdb-create-database
+						 semanticdb-new-database-class
+						 "/usr/include")))))
+
+
+
+
+;;;; 编程相关(Lua模式)
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
@@ -303,59 +399,6 @@
 
 
 
-;;;; 自动补全
-;; yasnippet
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
-
-;; auto-complete
-;; (setq ac-auto-start t)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-
-;; auto-complete-clang
-(require 'auto-complete-clang)
-(setq ac-quick-help-delay 0.5)
-(global-set-key (kbd "C-<tab>") 'ac-complete-clang)
-
-;; 通过命令获取gcc搜索目录：echo "" | g++ -v -x c++ -E -""
-(setq ac-clang-flags
-      (mapcar (lambda (item)(concat "-I" item))
-              (split-string
-               "
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7/i686-redhat-linux
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward
-/usr/local/include
-/usr/lib/gcc/i686-redhat-linux/4.4.7/include
-/usr/include/arpa
-/usr/include/sys
-/usr/include/c++
-/usr/include/c++/4.4.4
-/usr/include/c++/4.4.7
-/usr/include"
-               )))
-
-(defun my-ac-config ()
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
-  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-  ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
-  (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
-  (add-hook 'css-mode-hook 'ac-css-mode-setup)
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
-(defun my-ac-cc-mode-setup ()
-  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
-(add-hook 'c++-mode-common-hook 'my-ac-cc-mode-setup)
-(add-hook 'lua-mode-common-hook 'my-ac-cc-mode-setup)
-(my-ac-config)
-
-
-
-
 ;;;; 全局快捷键
 ;; F1：列举我的书签
 ;; (global-set-key (kbd "<f1>") 'list-bookmarks)
@@ -432,16 +475,3 @@
 
 ;; Tab补全或缩进
 ;; (global-set-key [(tab)] 'my-indent-or-complete)
-
-
-
-
-;;;; server mode
-(require 'server)
-(when (and (= emacs-major-version 23)
-           (= emacs-minor-version 1)
-           (equal window-system 'w32))
-  (defun server-ensure-safe-dir (dir) "Noop" t)) ; Suppress error "directory
-										; ~/.emacs.d/server is unsafe"
-										; on windows.
-(server-start)
