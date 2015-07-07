@@ -1,4 +1,5 @@
 #/bin/bash
+#emacs24的依赖项
 yum -y groupinstall "Development Tools"
 yum -y install gtk+-devel gtk2-devel
 yum -y install libXpm-devel
