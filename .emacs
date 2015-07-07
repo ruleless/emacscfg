@@ -17,6 +17,9 @@
 ;; 编辑器设置
 (require 'settings-edit)
 
+;; 颜色设置
+(require 'settings-color)
+
 ;; 自动补全设置
 (require 'settings-complete)
 
