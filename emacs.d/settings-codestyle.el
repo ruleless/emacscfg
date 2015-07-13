@@ -31,8 +31,6 @@
 (add-hook 'lua-mode-hook 'my-lua-setup)
 
 
-
-
 ;;;; 编程相关(C/C++)
 ;; CC-mode配置 http://cc-mode.sourceforge.net/
 (require 'cc-mode)
@@ -114,6 +112,17 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
 (add-hook 'lua-mode-common-hook 'google-set-c-style)
+
+
+(setq auto-mode-alist
+	  ;; 将文件模式和文件后缀关联起来
+	  (append '(("\\.py\\'" . python-mode)
+				("\\.s?html?\\'" . html-helper-mode)
+				("\\.asp\\'" . html-helper-mode)
+				("\\.phtml\\'" . html-helper-mode)
+				("\\.impl\\'" . c++-mode)
+				("\\.css\\'" . css-mode))
+			  auto-mode-alist))
 
 
 (provide 'settings-codestyle)
