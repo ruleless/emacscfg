@@ -13,6 +13,7 @@
 
 ;; F3:跳转到寄存器保存的位子
 ;; (global-set-key (kbd "<f3>") 'jump-to-register)
+(global-set-key (kbd "<f3>") 'list-matching-lines)
 
 ;; Ctrl+F3:记录当前光标位子到寄存器
 ;; (global-set-key [C-f3] 'point-to-register)
