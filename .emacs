@@ -26,5 +26,11 @@
 ;; 编程风格
 (require 'settings-codestyle)
 
+;; gtags
+(require 'settings-gtags)
+
+;; 使用函数list-packages安装插件
+;; (package-initialize)
+
 ;; 快捷键
 (require 'settings-keys)
