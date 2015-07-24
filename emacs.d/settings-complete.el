@@ -13,7 +13,8 @@
 ;; auto-complete-clang
 (require 'auto-complete-clang)
 (setq ac-quick-help-delay 0.5)
-(global-set-key (kbd "C-<tab>") 'ac-complete-clang)
+;; (global-set-key (kbd "C-<tab>") 'ac-complete-clang)
+(define-key ac-mode-map  (kbd "M-/") 'ac-complete-clang)
 
 ;; 通过命令获取gcc搜索目录：echo "" | g++ -v -x c++ -E -""
 (setq ac-clang-flags
