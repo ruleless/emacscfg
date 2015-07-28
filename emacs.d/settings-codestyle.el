@@ -120,7 +120,9 @@
 				("\\.s?html?\\'" . html-helper-mode)
 				("\\.asp\\'" . html-helper-mode)
 				("\\.phtml\\'" . html-helper-mode)
+				("\\.h\\'" . c++-mode)
 				("\\.impl\\'" . c++-mode)
+				("\\.inl\\'" . c++-mode)
 				("\\.css\\'" . css-mode))
 			  auto-mode-alist))
 
