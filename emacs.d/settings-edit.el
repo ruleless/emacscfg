@@ -10,6 +10,7 @@
 
 ;; 关闭烦人的出错时的提示声
 (setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 ;; 光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线
 ;; (mouse-avoidance-mode 'animate)
