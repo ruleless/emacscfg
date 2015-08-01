@@ -4,7 +4,7 @@
 (color-theme-initialize)
 ;; (color-theme-dark-blue2)
 ;; (color-theme-gray1)
-(color-theme-charcoal-black)
+(color-theme-hober)
 ;; (color-theme-clarity)
 
 (provide 'settings-color)
