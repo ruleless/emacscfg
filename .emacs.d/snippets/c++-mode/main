@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: main
-# key: main
+# key: umain
 # --
 int main(int argc, char *argv[])
 {
