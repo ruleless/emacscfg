@@ -36,6 +36,7 @@ $(EMACSDIR):.emacs.d $(SETTINGS)  # emacs配置目录
 	cp $(SETTINGS) $(EMACSDIR)
 $(ACDICT):.emacs.d/ac-dict
 	cp -r $^ $(EMACSDIR)
+	touch $(ACDICT)
 $(ACDATA):.emacs.d/ac-comphist.dat
 	cp -r $^ $(EMACSDIR)
 
@@ -51,6 +52,7 @@ $(YASNIPPET):$(PLUGINS) .emacs.d/plugins/yasnippet  # yasnippet
 	touch $(YASNIPPET)
 $(COLOR_THEME):$(PLUGINS) .emacs.d/plugins/color-theme-6.6.0
 	cp -r .emacs.d/plugins/color-theme-6.6.0 $(PLUGINS)
+	touch $(COLOR_THEME)	
 
 $(PLUGINS):
 	-mkdir $(PLUGINS)
