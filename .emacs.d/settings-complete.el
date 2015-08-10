@@ -27,6 +27,7 @@
 /usr/local/include
 /usr/lib/gcc/i686-redhat-linux/4.4.7/include
 /usr/include
+/usr/include/linux
 /home/ruleless/proj/snail/lib
 "
                )))
