@@ -29,6 +29,7 @@
 /usr/include
 /usr/include/linux
 /home/ruleless/proj/snail/lib
+/home/ruleless/proj/cppunit/include
 "
                )))
 
