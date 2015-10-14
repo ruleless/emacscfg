@@ -1,0 +1,8 @@
+* Emacs 配置
+** For Linux
+   1. make
+   2. M-x: list-packages -> 安装ggtags
+** For Windows
+   1. 拷贝 .emacs文件 和 .emacs.d目录 到 $HOME 目录
+   2. 进入 $HOME/.emacs.d/plugins 目录，执行 git clone --recursive git@github.com:ruleless/yasnippet.git
+   3. M-x: list-packages -> 安装ggtags
