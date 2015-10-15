@@ -34,3 +34,9 @@
 
 ;; 快捷键
 (require 'settings-keys)
+
+;; org-mode
+(require 'settings-org)
+
+;; 字体
+(require 'settings-font)
