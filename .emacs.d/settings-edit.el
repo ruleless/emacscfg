@@ -113,7 +113,7 @@
     (kill-ring-save (mark) (point))))
 
 ;; 自动的在文件末增加一新行
-(setq require-final-newline t)
+;; (setq require-final-newline t)
 
 ;; 当光标在行尾上下移动的时候，始终保持在行尾。
 (setq track-eol t)
@@ -159,7 +159,7 @@
 (setq kill-ring-max 200)
 
 ;; 删除行尾空白
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Tab键
 (setq default-tab-width 4)
