@@ -11,4 +11,6 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
 (provide 'settings-org)
