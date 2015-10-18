@@ -44,3 +44,5 @@
 	  (require 'settings-font)
 	  (message "align font setted!"))
   (message "align font note setted!"))
+
+(require 'switch-window)
