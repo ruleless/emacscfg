@@ -13,3 +13,6 @@
 
 (global-set-key "\C-x\C-p" 'other-window-backward)
 (global-set-key "\C-x\C-n" 'other-window-forward)
+
+
+(provide 'settings-window

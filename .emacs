@@ -46,3 +46,4 @@
   (message "align font note setted!"))
 
 (require 'switch-window)
+(require 'settings-window)
