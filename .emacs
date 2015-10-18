@@ -39,4 +39,8 @@
 (require 'settings-org)
 
 ;; 字体
-(require 'settings-font)
+(if (eq system-type 'windows-nt)
+	(progn
+	  (require 'settings-font)
+	  (message "align font setted!"))
+  (message "align font note setted!"))
