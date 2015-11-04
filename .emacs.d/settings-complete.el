@@ -51,26 +51,26 @@
 
 ;;;; 基于语法分析的智能补全
 ;; 配置semantic,代码分析,智能补全
-(setq semanticdb-default-save-directory (expand-file-name "~/.semanticdb")) ;设置semantic.cache路径
-(setq semanticdb-project-roots (list (expand-file-name "/"))) ;配置Semantic的检索范围
-(autoload 'senator-try-expand-semantic "senator") ;优先调用了senator的分析结果
-(add-hook 'semantic-init-hooks 'semantic-idle-completions-mode) ;空闲时进行补全分析
-(setq-default semantic-idle-scheduler-idle-time 432000) ;避免semantic占用CPU过多
+;; (setq semanticdb-default-save-directory (expand-file-name "~/.semanticdb")) ;设置semantic.cache路径
+;; (setq semanticdb-project-roots (list (expand-file-name "/"))) ;配置Semantic的检索范围
+;; (autoload 'senator-try-expand-semantic "senator") ;优先调用了senator的分析结果
+;; (add-hook 'semantic-init-hooks 'semantic-idle-completions-mode) ;空闲时进行补全分析
+;; (setq-default semantic-idle-scheduler-idle-time 432000) ;避免semantic占用CPU过多
 
-;;; C/C++语言启动时自动加载semantic对/usr/include的索引数据库
-(setq semanticdb-search-system-databases t)
-(add-hook 'c-mode-common-hook
-		  (lambda ()
-			(setq semanticdb-project-system-databases
-				  (list (semanticdb-create-database
-						 semanticdb-new-database-class
-						 "/usr/include")))))
-(add-hook 'c++-mode-common-hook
-		  (lambda ()
-			(setq semanticdb-project-system-databases
-				  (list (semanticdb-create-database
-						 semanticdb-new-database-class
-						 "/usr/include")))))
+;; ;;; C/C++语言启动时自动加载semantic对/usr/include的索引数据库
+;; (setq semanticdb-search-system-databases t)
+;; (add-hook 'c-mode-common-hook
+;; 		  (lambda ()
+;; 			(setq semanticdb-project-system-databases
+;; 				  (list (semanticdb-create-database
+;; 						 semanticdb-new-database-class
+;; 						 "/usr/include")))))
+;; (add-hook 'c++-mode-common-hook
+;; 		  (lambda ()
+;; 			(setq semanticdb-project-system-databases
+;; 				  (list (semanticdb-create-database
+;; 						 semanticdb-new-database-class
+;; 						 "/usr/include")))))
 
 
 (provide 'settings-complete)
