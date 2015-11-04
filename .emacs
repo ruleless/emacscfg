@@ -47,3 +47,7 @@
 
 (require 'switch-window)
 (require 'settings-window)
+
+
+;; 变量定义
+(setq temp "~/.emacs.d/plugins/yasnippet/snippets")
