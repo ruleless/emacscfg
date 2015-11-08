@@ -1,9 +1,9 @@
 * Emacs 配置
 ** 安装
 *** For Linux
-   	*. make
-   	*. M-x: list-packages -> 安装ggtags
-	*. 源码安装 GNU Global
+   	* make
+   	* M-x: list-packages -> 安装ggtags
+	* 源码安装 GNU Global
 
 	   进入官网 http://www.gnu.org/software/global/global.html ，下载源码包；或者，你也可以通过 https://github.com/ruleless/3rdlib 来下载 GNU Global 源码包。接下来，就是 Linux 典型的源码安装步骤了：
 	   #+begin_src sh
