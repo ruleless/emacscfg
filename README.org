@@ -1,9 +1,9 @@
 * Emacs 配置
 ** 安装
 *** For Linux
-   	1. make
-   	2. M-x: list-packages -> 安装ggtags
-	3. 源码安装 GNU Global
+   	*. make
+   	*. M-x: list-packages -> 安装ggtags
+	*. 源码安装 GNU Global
 
 	   进入官网 http://www.gnu.org/software/global/global.html ，下载源码包；或者，你也可以通过 https://github.com/ruleless/3rdlib 来下载 GNU Global 源码包。接下来，就是 Linux 典型的源码安装步骤了：
 	   #+begin_src sh
@@ -14,9 +14,9 @@
          make install
 	   #+end_src
 *** For Windows
-   	1. 拷贝 .emacs文件 和 .emacs.d目录 到 $HOME 目录
-   	2. 进入 $HOME/.emacs.d/plugins 目录，执行 git clone --recursive git@github.com:ruleless/yasnippet.git
-   	3. M-x: list-packages -> 安装ggtags
+   	* 拷贝 .emacs文件 和 .emacs.d目录 到 $HOME 目录
+   	* 进入 $HOME/.emacs.d/plugins 目录，执行 git clone --recursive git@github.com:ruleless/yasnippet.git
+   	* M-x: list-packages -> 安装ggtags
 ** Emacs 插件
 *** 自动补全
 	此处我使用的是 auto complete + clang 来实现的自动补全。相应的 elsip 脚本已在仓库中，并且配置了相应 Makefile 依赖。不过，我们仍需 clang 程序的支持，所以我们需要安装 clang。早期的 CentOS 版本需要使用编译源码的方式来安装 clang，不过，CentOS 7 已将 clang 添加至 yum 安装源，这倒为我们省去不少麻烦。
