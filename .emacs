@@ -45,9 +45,12 @@
 	  (message "align font setted!"))
   (message "align font note setted!"))
 
+;; 自动检测文本编码，以解决乱码问题
+(require 'unicad)
+
+;; Buffer切换设置
 (require 'switch-window)
 (require 'settings-window)
-
 
 ;; 变量定义
 (setq temp "~/.emacs.d/plugins/yasnippet/snippets")
