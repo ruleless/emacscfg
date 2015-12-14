@@ -5,10 +5,21 @@
 (yas-global-mode 1)
 
 ;; auto-complete
-;; (setq ac-auto-start t)
+(setq ac-auto-start t)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
+
+(defun my-ac-config ()
+  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+  (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'lua-mode-common-hook 'ac-common-setup)
+  (add-hook 'makefile-mode-hook
+			(lambda ()
+			  (message "ac-makefile mode start!")
+			  (ac-common-setup)))
+  (global-auto-complete-mode t))
+(my-ac-config)
 
 ;; auto-complete-clang
 (require 'auto-complete-clang)
@@ -32,13 +43,6 @@
 /home/ruleless/proj/cppunit/include
 "
                )))
-
-(defun my-ac-config ()
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
-  (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
-  (add-hook 'lua-mode-common-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
-(my-ac-config)
 
 
 ;;;; 基于语法分析的智能补全
