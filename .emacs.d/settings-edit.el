@@ -159,7 +159,12 @@
 (setq kill-ring-max 200)
 
 ;; 删除行尾空白
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook
+		  (lambda ()
+			(if (eq major-mode 'lua-mode)
+				(message "save lua file success")
+			  (delete-trailing-whitespace))))
 
 ;; Tab键
 (setq default-tab-width 4)
