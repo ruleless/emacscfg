@@ -162,8 +162,8 @@
 ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook
 		  (lambda ()
-			(if (eq major-mode 'lua-mode)
-				(message "save lua file success")
+			(if (or (eq major-mode 'lua-mode) (eq major-mode 'c++-mode))
+				(message "save file without delete trailing whitespace")
 			  (delete-trailing-whitespace))))
 
 ;; Tab键
