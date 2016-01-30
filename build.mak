@@ -5,6 +5,7 @@ RM=-rm -rf
 # dirs:=$(basename $(patsubst ./%,%,$(dirs)))
 # dirs:=$(filter-out $(exclude_dirs),$(dirs))
 SUBDIRS:=$(dirs)
+HOME?=~
 
 
 # Phony Target

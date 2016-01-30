@@ -1,4 +1,4 @@
 
-SUBDIRS:= .emacs.d
+dirs:=.emacs.d
 
 include ./build.mak
