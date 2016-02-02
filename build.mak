@@ -9,15 +9,26 @@ HOME?=~
 
 
 # Phony Target
-.PHONY:all fake
-all:$(phonyt) subdirs
+.PHONY:all copyt fake subdirs
+all:$(DESTDIR) $(SUBT) subdirs
 
 
-# First Layer
+# subdir make
 subdirs:$(SUBDIRS)
 	for dir in $(SUBDIRS); \
 		do $(MAKE) -C $$dir||exit 1; \
 	done
+
+# copy rule
+ifdef DESTDIR
+$(DESTDIR):
+	mkdir $(DESTDIR)
+endif
+
+copyt:
+ifdef SRCFILES
+	cp $(SRCFILES) $(DESTDIR)/
+endif
 
 
 # clean
@@ -29,3 +40,4 @@ clean:
 
 # for debug
 fake:
+	@echo $(dirs)

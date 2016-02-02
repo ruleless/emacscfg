@@ -1,20 +1,9 @@
-phonyt:= allt
+SUBT:=copyt
+
+dirs:=ac-dict snippets plugins
 
 TOPDIR:=..
 DESTDIR:=$(HOME)/.emacs.d
-
-srcfiles:= $(wildcard *.el)
-destfiles:= $(foreach v,$(srcfiles),$(DESTDIR)/$(v))
-
-allt:$(DESTDIR) $(destfiles)
-
-$(DESTDIR):
-	mkdir $(DESTDIR)
-
-$(destfiles):$(srcfiles)
-	cp $@ $^
-
-fake:
-	@echo $(destfiles)
+SRCFILES:=$(wildcard *.el)
 
 include $(TOPDIR)/build.mak
