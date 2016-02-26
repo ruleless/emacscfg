@@ -14,14 +14,14 @@
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 ;; capture
-(setq org-directory "~")
+;; (setq org-directory "~")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-	  '(("t" "Todo" entry (file+headline "~/gtd.org" "Tasks")
+	  '(("t" "Todo" entry (file+headline (concat org-directory "/gtd.org") "Tasks")
 		 "* TODO %?\n %i")
-		("c" "capture" entry (file+headline "~/capture.org" "capture")
+		("c" "capture" entry (file+headline (concat org-directory "/capture.org") "capture")
 		 "* %?")
-		("j" "Journal" entry (file+datetree "~/journal.org")
+		("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
 		 "* %?\nInput： %U\n  %i")))
 
 ;; refile
