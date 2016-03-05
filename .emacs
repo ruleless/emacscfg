@@ -48,6 +48,9 @@
 ;; grep 设置(支持中文)
 (require 'color-moccur)
 
+;; 列宽规则
+(require 'settings-fci)
+
 ;; 自动检测文本编码，以解决乱码问题
 (require 'unicad)
 
