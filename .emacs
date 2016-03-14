@@ -36,6 +36,7 @@
 (require 'settings-keys)
 
 ;; org-mode
+(setq org-directory "~")
 (require 'settings-org)
 
 ;; 字体

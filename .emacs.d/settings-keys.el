@@ -30,6 +30,22 @@
 ;; (global-set-key [(f6)] 'kill-buffer-and-window)
 
 ;; 编译和调试
+(setq gdb-many-windows t)
+(global-set-key [f4] 'gdb-many-windows)
+(global-set-key [C-f4] 'gdb-many-windows)
+(global-set-key [f5] 'gdb)
+(global-set-key [C-f5] 'gud-run)
+(global-set-key [S-f5] 'gud-cont)
+(global-set-key [f7] 'compile)
+(global-set-key [f8] 'gud-print)
+(global-set-key [C-f8] 'gud-pstar)
+(global-set-key [f9] 'gud-break)
+(global-set-key [C-f9] 'gud-remove)
+(global-set-key [f10] 'gud-next)
+(global-set-key [C-f10] 'gud-until)
+(global-set-key [S-f10] 'gud-jump)
+(global-set-key [f11] 'gud-step)
+(global-set-key [C-f11] 'gud-finish)
 ;; (global-set-key [f7] 'compile)
 ;; (global-set-key [C-f7] 'gdb)
 ;; (setq-default compile-command "make")
@@ -38,10 +54,10 @@
 
 ;; F9:格式化代码
 ;; (global-set-key [f9] 'c-indent-line-or-region)
-(global-set-key [f9] 'indent-whole)
+;; (global-set-key [f9] 'indent-whole)
 
 ;; F10:注释 / 取消注释
-(global-set-key [f10] 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c C-k") 'comment-or-uncomment-region)
 
 ;; Ctrl+F11:复制区域到寄存器
 ;; (global-set-key [C-f11] 'copy-to-register)
