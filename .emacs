@@ -38,6 +38,7 @@
 ;; org-mode
 (setq org-directory "~")
 (require 'settings-org)
+(require 'settings-markdown)
 
 ;; 字体
 (if (eq system-type 'windows-nt)
