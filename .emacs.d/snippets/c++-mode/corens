@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: corens
+# key: corens
+# --
+NAMESPACE_BEG(core)
+$0
+NAMESPACE_END // namespace core
