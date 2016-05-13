@@ -121,6 +121,7 @@
 				("\\.asp\\'" . html-helper-mode)
 				("\\.phtml\\'" . html-helper-mode)
 				("\\.h\\'" . c++-mode)
+				("\\.c\\'" . c++-mode)
 				("\\.impl\\'" . c++-mode)
 				("\\.inl\\'" . c++-mode)
 				("\\.txt\\'" . org-mode)
