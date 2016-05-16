@@ -125,6 +125,7 @@
 				("\\.impl\\'" . c++-mode)
 				("\\.inl\\'" . c++-mode)
 				("\\.txt\\'" . org-mode)
+				("\\Makefile\\'" . makefile-mode)
 				("\\.mak\\'" . makefile-mode)
 				("\\.css\\'" . css-mode))
 			  auto-mode-alist))
