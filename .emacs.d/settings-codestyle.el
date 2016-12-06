@@ -27,7 +27,7 @@
 ;; 配置Lua的Tab键
 (setq lua-indent-level 4)
 (defun my-lua-setup ()
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode nil))
 (add-hook 'lua-mode-hook 'my-lua-setup)
 
 
@@ -96,7 +96,7 @@
   ;; other customizations
   (setq tab-width 4
         ;; this will make sure spaces are used instead of tabs
-        indent-tabs-mode t)
+        indent-tabs-mode nil)
   ;; we like auto-newline and hungry-delete
   ;; (c-toggle-auto-hungry-state 1)
   ;; key bindings for all supported languages.  We can put these in

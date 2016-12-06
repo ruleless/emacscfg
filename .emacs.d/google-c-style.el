@@ -68,8 +68,8 @@ Suitable for inclusion in `c-offsets-alist'."
   `((c-recognize-knr-p . nil)
     (c-enable-xemacs-performance-kludge-p . t) ; speed up indentation in XEmacs
     (c-basic-offset . 4)
-    (indent-tabs-mode . t)
-	(c-tab-always-indent . t)
+    (indent-tabs-mode . nil)
+    (c-tab-always-indent . t)
     (c-comment-only-line-offset . 0)
     (c-hanging-braces-alist . ((defun-open after)
                                (defun-close before after)
@@ -128,8 +128,8 @@ Suitable for inclusion in `c-offsets-alist'."
                         (statement-case-intro . +) ; case w/o {
                         (access-label . /)
                         (innamespace . 0)
-						(inextern-lang . 0)
-						)))
+                        (inextern-lang . 0)
+                        )))
   "Google C/C++ Programming Style.")
 
 (defun google-set-c-style ()
@@ -140,7 +140,7 @@ Suitable for inclusion in `c-offsets-alist'."
   (setq c-tab-always-indent t)
   (setq tab-width 4
         ;; this will make sure spaces are used instead of tabs
-        indent-tabs-mode t)
+        indent-tabs-mode nil)
   (c-add-style "Google" google-c-style t))
 
 (defun google-make-newline-indent ()
