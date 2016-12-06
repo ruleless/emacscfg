@@ -32,15 +32,19 @@
       (mapcar (lambda (item)(concat "-I" item))
               (split-string
                "
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7/i686-redhat-linux
-/usr/lib/gcc/i686-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward
 /usr/local/include
-/usr/lib/gcc/i686-redhat-linux/4.4.7/include
+/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include
 /usr/include
-/usr/include/linux
-/home/ruleless/proj/snail/lib
-/home/ruleless/proj/cppunit/include
+/home/liuy/proj/cill
+/home/liuy/proj/fasttun
+/home/liuy/proj/fasttun/cill/kmem
+/home/liuy/proj/nginx/src/core
+/home/liuy/proj/nginx/src/event
+/home/liuy/proj/nginx/src/os/unix
+/home/liuy/proj/nginx/objs
 "
                )))
 

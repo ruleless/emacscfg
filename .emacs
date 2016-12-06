@@ -56,6 +56,8 @@
 ;; 自动检测文本编码，以解决乱码问题
 (require 'unicad)
 
+(require 'settings-codingsystem)
+
 ;; Buffer切换设置
 (require 'switch-window)
 (require 'settings-window)
