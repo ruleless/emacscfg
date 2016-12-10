@@ -38,7 +38,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 菜单栏、工具栏
-(tool-bar-mode nil)
+;; (tool-bar-mode nil)
 (menu-bar-mode nil)
 
 ;; 高亮当前行
@@ -46,8 +46,8 @@
 (global-hl-line-mode t)
 
 ;; 滚动条在右侧
-(set-scroll-bar-mode 'right)
-(scroll-bar-mode nil)
+;; (set-scroll-bar-mode 'right)
+;; (scroll-bar-mode nil)
 
 ;; 在标题栏显示buffer的名字
 (setq frame-title-format "%b@emacs")
