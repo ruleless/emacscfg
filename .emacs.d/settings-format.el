@@ -3,17 +3,19 @@
   (interactive)
   (untabify (point-min) (point-max)))
 
-(defun add-untaify-hook ()
-  (add-hook 'before-save-hook
-            '(lambda ()
-               (untabify (point-min) (point-max))
-               (message "untabify"))))
 
-(if (not (eq system-type 'windows-nt))
-    (progn
-      (add-hook 'c-mode-common-hook 'add-untaify-hook)
-      (add-hook 'c++-mode-common-hook 'add-untaify-hook)
-      (add-hook 'lua-mode-common-hook 'add-untaify-hook)))
+(add-hook 'before-save-hook
+		  (lambda ()
+			(if (and
+				 (not (eq system-type 'windows-nt))
+				 (or (eq major-mode 'c++-mode)
+					 (or (eq major-mode 'lua-mode)
+						 (eq major-mode 'c-mode)))
+				 )
+				(progn
+				  (untabify (point-min) (point-max))
+				  (message "untabify"))
+			  )))
 
 
 ;; 行尾换行处理
