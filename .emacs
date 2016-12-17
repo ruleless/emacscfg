@@ -1,7 +1,7 @@
-;; 个人信息
+;; self imformation
 (setq user-full-name "ruleless")
 
-;; 配置emacs的启动目录
+;; set load directory
 (add-to-list 'load-path "~/.emacs.d")
 
 ;; server mode
@@ -14,16 +14,16 @@
                                         ; on windows.
 (server-start)
 
-;; 编辑器设置
+;; edit settings
 (require 'settings-edit)
 
-;; 颜色设置
+;; color settings
 (require 'settings-color)
 
-;; 自动补全设置
+;; auto complet setttings
 (require 'settings-complete)
 
-;; 编程风格
+;; for codeding
 (require 'settings-codestyle)
 
 ;; gtags
