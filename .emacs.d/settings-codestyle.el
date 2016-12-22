@@ -27,7 +27,7 @@
 ;; 配置Lua的Tab键
 (setq lua-indent-level 4)
 (defun my-lua-setup ()
-  (setq indent-tabs-mode nil))
+  (setq indent-tabs-mode t))
 (add-hook 'lua-mode-hook 'my-lua-setup)
 
 
@@ -111,7 +111,6 @@
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
-(add-hook 'lua-mode-common-hook 'google-set-c-style)
 
 
 (setq auto-mode-alist
