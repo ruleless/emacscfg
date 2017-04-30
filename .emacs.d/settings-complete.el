@@ -5,7 +5,7 @@
 (yas-global-mode 1)
 
 ;; auto-complete
-(setq ac-auto-start t)
+(setq ac-auto-start 3)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
