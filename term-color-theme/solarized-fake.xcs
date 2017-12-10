@@ -1,0 +1,46 @@
+[Names]
+count=2
+name1=Solarized Dark
+name0=Solarized Light
+
+[Solarized Light]
+text=657b83
+text(bold)=586e75
+background=fdf6e3
+black=073642
+black(bold)=002b36
+red=dc322f
+red(bold)=cb4b16
+green=859900
+green(bold)=586e75
+yellow(bold)=657b83
+yellow=b58900
+blue=268bd2
+blue(bold)=839496
+magenta=d33682
+magenta(bold)=6c71c4
+cyan=2aa198
+cyan(bold)=93a1a1
+white=eee8d5
+white(bold)=fdf6e3
+
+[Solarized Dark]
+text(bold)=839496
+magenta(bold)=6c71c4
+text=839496
+white(bold)=fdf6e3
+green=859900
+red(bold)=cb4b16
+green(bold)=586e75
+black(bold)=073642
+red=dc322f
+blue=268bd2
+black=002b36
+blue(bold)=839496
+yellow(bold)=657b83
+cyan(bold)=93a1a1
+yellow=b58900
+magenta=dd3682
+background=042028
+white=eee8d5
+cyan=2aa198
