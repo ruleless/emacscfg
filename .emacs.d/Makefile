@@ -1,6 +1,6 @@
 SUBT:=copyt
 
-dirs:=ac-dict snippets plugins
+dirs:=ac-dict settings snippets plugins
 
 TOPDIR:=..
 DESTDIR:=$(HOME)/.emacs.d

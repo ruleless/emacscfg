@@ -3,6 +3,7 @@
 
 ;; set load directory
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/settings")
 
 ;; server mode
 (require 'server)
@@ -14,56 +15,17 @@
                                         ; on windows.
 (server-start)
 
-;; edit settings
-(require 'settings-edit)
-
-;; color settings
-(require 'settings-color)
-
-;; auto complet setttings
-(require 'settings-complete)
-
-;; for codeding
-(require 'settings-codestyle)
-
-;; gtags
-(require 'settings-gtags)
-
-;; 使用函数list-packages安装插件
-;; (package-initialize)
-
-;; 快捷键
-(require 'settings-keys)
-
-;; org-mode
-(setq org-directory "~")
-(require 'settings-org)
-(require 'settings-markdown)
-
-;; 字体
-(if (eq system-type 'windows-nt)
-    (progn
-      (require 'settings-font)
-      (message "align font setted!"))
-  (message "align font note setted!"))
+;; 加载自定义设置
+(require 'init-settings)
 
 ;; grep 设置(支持中文)
 (require 'color-moccur)
 
-;; 列宽规则
-(require 'settings-fci)
-
 ;; 自动检测文本编码，以解决乱码问题
 (require 'unicad)
 
-(require 'settings-codingsystem)
-
-;; Buffer切换设置
-(require 'switch-window)
-(require 'settings-window)
-
-;; 格式相关
-(require 'settings-format)
+;; 使用函数list-packages安装插件
+;; (package-initialize)
 
 ;; 变量定义
 (setq temp "~/.emacs.d/plugins/yasnippet/snippets")

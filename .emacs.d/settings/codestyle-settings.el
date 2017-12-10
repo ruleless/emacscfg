@@ -130,4 +130,4 @@
 			  auto-mode-alist))
 
 
-(provide 'settings-codestyle)
+(provide 'codestyle-settings)

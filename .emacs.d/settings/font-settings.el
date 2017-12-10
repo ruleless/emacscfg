@@ -7,4 +7,4 @@
 					charset
 					(font-spec :family "Microsoft Yahei" :size 16)))
 
-(provide 'settings-font)
+(provide 'font-settings)

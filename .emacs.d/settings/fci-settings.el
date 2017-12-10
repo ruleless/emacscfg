@@ -9,4 +9,4 @@
 ;;   (lambda () (fci-mode 1)))
 ;; (global-fci-mode t)
 
-(provide 'settings-fci)
+(provide 'fci-settings)

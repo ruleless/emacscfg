@@ -95,4 +95,4 @@
 ;; (global-set-key [(tab)] 'my-indent-or-complete)
 
 
-(provide 'settings-keys)
+(provide 'keys-settings)

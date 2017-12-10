@@ -15,4 +15,4 @@
 (global-set-key "\C-x\C-n" 'other-window-forward)
 
 
-(provide 'settings-window)
+(provide 'window-settings)

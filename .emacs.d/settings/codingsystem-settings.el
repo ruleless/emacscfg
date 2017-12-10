@@ -7,4 +7,4 @@
 	(prefer-coding-system 'chinese-gbk)
   (prefer-coding-system 'utf-8))
 
-(provide 'settings-codingsystem)
+(provide 'codingsystem-settings)

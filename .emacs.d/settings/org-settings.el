@@ -61,4 +61,4 @@ MAXLEVEL (defaults to 2)."
            `((,buffer-file :maxlevel . ,maxlevel))))))
 
 
-(provide 'settings-org)
+(provide 'org-settings)

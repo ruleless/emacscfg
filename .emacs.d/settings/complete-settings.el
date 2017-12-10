@@ -73,4 +73,4 @@
 ;; 						 "/usr/include")))))
 
 
-(provide 'settings-complete)
+(provide 'complete-settings)

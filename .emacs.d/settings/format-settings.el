@@ -28,4 +28,4 @@
   (while (search-forward "\n" nil t) (replace-match "\r\n")))
 
 
-(provide 'settings-format)
+(provide 'format-settings)
