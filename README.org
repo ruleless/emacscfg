@@ -1,11 +1,11 @@
-* Emacs ����
-** ��װ
+* Emacs 配置
+** 安装
 *** For Linux
    	* make
-   	* M-x: list-packages -> ��װggtags
-	* Դ�밲װ GNU Global
+   	* M-x: list-packages -> 安装ggtags
+	* 源码安装 GNU Global
 
-	  ������� http://www.gnu.org/software/global/global.html ������Դ��������ߣ���Ҳ����ͨ�� https://github.com/ruleless/3rdlib ������ GNU Global Դ����������������� Linux ���͵�Դ�밲װ�����ˣ�
+	  进入官网 http://www.gnu.org/software/global/global.html ，下载源码包；或者，你也可以通过 https://github.com/ruleless/3rdlib 来下载 GNU Global 源码包。接下来，就是 Linux 典型的源码安装步骤了：
 	  #+begin_src sh
         tar xvf global-6.5.1.tar.gz
         cd global-6.5.1
@@ -14,15 +14,47 @@
         make install
 	  #+end_src
 *** For Windows
-   	* ���� .emacs�ļ� �� .emacs.dĿ¼ �� $HOME Ŀ¼
-   	* ���� $HOME/.emacs.d/plugins Ŀ¼��ִ�� git clone --recursive git@github.com:ruleless/yasnippet.git
-   	* M-x: list-packages -> ��װggtags
-** Emacs ���
-*** �Զ���ȫ
-	�˴���ʹ�õ��� auto complete + clang ��ʵ�ֵ��Զ���ȫ����Ӧ�� elsip �ű����ڲֿ��У�������������Ӧ Makefile �������������������� clang �����֧�֣�����������Ҫ��װ clang�����ڵ� CentOS �汾��Ҫʹ�ñ���Դ��ķ�ʽ����װ clang��������CentOS 7 �ѽ� clang ������ yum ��װԴ���⵹Ϊ����ʡȥ�����鷳��
-*** ģ�岹ȫ����
-	ģ�岹ȫָ���ǣ�����ͨ���������������������Զ������Ƭ�εĸ�Ч��̷�ʽ����ʹ�õ� yasnippet �������װ�ű���д�� Makefile �ļ��С�
-*** ��ǩϵͳ
-	Tag System �ܰ�����ʵ�ֿ��ٵ�������ת(����˵������ת)���������������������ش�����ʹ�� GNU Global ��� ggtags ��ʵ�� Tag System���䰲װ���������ĵ���˵����
-*** ��ɫ����(��ɫ����)
-	�� .emacs.d/plugins Ŀ¼������Ϊ color-theme-6.6.0 ��Ŀ¼����Ŀ¼�µ��ļ������˲�ͬ����ɫ���������ǿ���ͨ�����룺 M-x color-theme-select �����ò�ͬ����ɫ������
+   	* 拷贝 .emacs文件 和 .emacs.d目录 到 $HOME 目录
+   	* 进入 $HOME/.emacs.d/plugins 目录，执行 git clone --recursive git@github.com:ruleless/yasnippet.git
+   	* M-x: list-packages -> 安装ggtags
+** Emacs 插件
+*** 自动补全
+	此处我使用的是 auto complete + clang 来实现的自动补全。相应的 elsip 脚本已在仓库中，并且配置了相应 Makefile 依赖。不过，我们仍需 clang 程序的支持，所以我们需要安装 clang。早期的 CentOS 版本需要使用编译源码的方式来安装 clang，不过，CentOS 7 已将 clang 添加至 yum 安装源，这倒为我们省去不少麻烦。
+*** 模板补全功能
+	模板补全指的是，我们通过输入少量单词来生成自定义代码片段的高效编程方式。我使用的 yasnippet 插件。安装脚本已写入 Makefile 文件中。
+*** 标签系统
+	Tag System 能帮我们实现快速的引用跳转(或者说代码跳转)，这对我们浏览代码意义重大。我们使用 GNU Global 配合 ggtags 来实现 Tag System。其安装已在上述文档中说明。
+*** 颜色主题(配色方案)
+	在 .emacs.d/plugins 目录下有名为 color-theme-6.6.0 的目录，此目录下的文件定义了不同的配色方案。我们可以通过输入： M-x color-theme-select 来试用不同的配色方案。
+** Python开发环境配置
+*** elpy
+	elpy的特性包括：
+
+	1. 自动缩进
+	2. 语法高亮
+	3. 自动补全
+	4. 语法检查
+	5. Python REPL
+	6. 虚拟环境支持
+
+	*安装*
+
+	首先需要通过easy_install(或pip)安装: pylint/flake8/flycheck/jedi
+
+	然后在脚本中加入如下语句：
+
+	#+begin_src elisp
+;; 使用函数list-packages安装插件
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+(package-initialize)
+	#+end_src
+
+	加入上述配置之后，通过package来安装elpy。安装成功之后再通过如下配置启动elpy。
+
+	#+begin_src elisp
+;;; python 开发环境
+(elpy-enable)
+	#+end_src

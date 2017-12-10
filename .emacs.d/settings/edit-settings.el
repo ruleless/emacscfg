@@ -160,11 +160,11 @@
 
 ;; 删除行尾空白
 ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'before-save-hook
-		  (lambda ()
-			(if (or (eq major-mode 'lua-mode) (eq major-mode 'c++-mode))
-				(message "save file without delete trailing whitespace")
-			  (delete-trailing-whitespace))))
+;; (add-hook 'before-save-hook
+;; 		  (lambda ()
+;; 			(if (or (eq major-mode 'lua-mode) (eq major-mode 'c++-mode))
+;; 				(message "save file without delete trailing whitespace")
+;; 			  (delete-trailing-whitespace))))
 
 ;; Tab键
 (setq default-tab-width 4)
