@@ -4,6 +4,7 @@
 ;; set load directory
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/settings")
+(add-to-list 'load-path "~/.emacs.d/theme")
 
 ;; server mode
 (require 'server)
@@ -17,6 +18,7 @@
 
 ;; 加载自定义设置
 (require 'init-settings)
+(require 'init-theme)
 
 ;; grep 设置(支持中文)
 (require 'color-moccur)
@@ -25,7 +27,14 @@
 (require 'unicad)
 
 ;; 使用函数list-packages安装插件
-;; (package-initialize)
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+(package-initialize)
+
+;;; python 开发环境
+(elpy-enable)
 
 ;; 变量定义
 (setq temp "~/.emacs.d/plugins/yasnippet/snippets")

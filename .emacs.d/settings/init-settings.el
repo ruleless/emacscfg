@@ -2,7 +2,7 @@
 (require 'edit-settings)
 
 ;; color settings
-(require 'color-settings)
+;; (require 'color-settings)
 
 ;; auto complet setttings
 (require 'complete-settings)
