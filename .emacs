@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/settings")
 (add-to-list 'load-path "~/.emacs.d/theme")
+(add-to-list 'load-path "~/.emacs.d/encrypt")
 
 ;; server mode
 (require 'server)
@@ -19,6 +20,7 @@
 ;; 加载自定义设置
 (require 'init-settings)
 (require 'init-theme)
+(require 'init-encrypt)
 
 ;; grep 设置(支持中文)
 (require 'color-moccur)
@@ -34,7 +36,7 @@
 (package-initialize)
 
 ;;; python 开发环境
-(elpy-enable)
+;; (elpy-enable)
 
 ;; 变量定义
 (setq temp "~/.emacs.d/plugins/yasnippet/snippets")
